@@ -16,8 +16,8 @@ include "login/misc/pagehead.php";
           at the top of the page.
         </p>
     </div>
- <div class="container">
-   <?php include "login/misc/pagefooter.php"; ?>
- </div>
+    <div class="container">
+      <?php include "login/misc/pagefooter.php"; ?>
+    </div>
 </body>
 </html>
