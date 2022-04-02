@@ -8,11 +8,11 @@ PHP-Login-Bootstap4
 `PHP-Login` is a simple login and signup system built with PHP, MySQL (with PDO), jQuery and Bootstrap 3. It is meant to be a starting point for PHP developers to build sites from and includes basic user management classes and methods.
 
 **Patch from bootstrap3 to bootstrap4**
-#### excute patch.sh
+#### 1. Excute patch.sh
 	$ git clone https://github.com/c00cjz00/PHP-Login-Bootstrap4.git
 	$ cd PHP-Login-Bootstrap4
 	$ bash patch.sh
-#### Run through web-based installer
+#### 2. Run through web-based installer
 Open this link in your web browser (replacing [yoursite.com] with your site address)
     http://{yoursite.com}/install/index.php
 
