@@ -10,7 +10,7 @@ if (file_exists("../composer.lock")) {
 }
 
 try {
-    if ($f = popen("curl --remote-name https://getcomposer.org/composer.phar 2>&1", "r")) {
+    /*if ($f = popen("curl --remote-name https://getcomposer.org/composer.phar 2>&1", "r")) {
         while (!feof($f)) {
             $status = fread($f, 1024);
             $arr_content = array("percent"=> 95, "message" => "Downloading composer.phar... <br>". $status, "failure" => 0);
@@ -19,7 +19,7 @@ try {
         }
         fclose($f);
         unset($f);
-    }
+    }*/
 
     //Windows
     if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
