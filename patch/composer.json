@@ -17,10 +17,10 @@
     "require": {
         "php": ">=7",
         "ext-pdo": "*",
-        "components/jquery": "^3.2",
+        "components/jquery": "^3",
         "components/bootstrap": "^4",
-        "firebase/php-jwt": "^5.0",
-        "phpmailer/phpmailer": "^5.2",
+        "firebase/php-jwt": "^5",
+        "phpmailer/phpmailer": "^5",
         "fengyuanchen/cropper": "dev-master"
     },
     "config": {
