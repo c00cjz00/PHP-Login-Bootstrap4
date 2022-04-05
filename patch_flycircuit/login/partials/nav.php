@@ -6,6 +6,23 @@
 			// SIGN IN / USER SETTINGS BUTTON
 			$auth = new PHPLogin\AuthorizationHandler;
 
+			// cjz
+			if (isset($_POST["copyCart"])){
+					if (isset($_POST["mySelected"]) && (trim($_POST["mySelected"])!="")){
+							$mySelected=trim($_POST["mySelected"]);
+							$tmpArr=explode(",",$mySelected);
+							for($i=0;$i<count($tmpArr);$i++){
+									$neuron=trim($tmpArr[$i]);
+									$_SESSION["neuron"][$neuron]=$neuron;
+							}
+					}
+			}
+			if ( isset($_SESSION["neuron"]) ) {
+					$cartNum=number_format(count($_SESSION["neuron"]))." <small>Neuron</small>";
+			} else {
+					$cartNum="0 <small>Neuron</small>";
+			}
+
 			// Pulls either username or first/last name (if filled out)
 			if ($auth->isLoggedIn()) {
 				$usr = PHPLogin\ProfileData::pullUserFields($_SESSION['uid'], array('firstname', 'lastname'));
@@ -48,7 +65,9 @@
             <a class="blog-header-logo text-dark" href="#"><em>Flycircuit</em></a>
           </div>
           <div class="col-3 d-flex justify-content-end align-items-center">
-		    <a class="text-muted" href="#"><i class="fa fa-cart-arrow-down" style="font-size:30px;color:grey;"></i></a>
+			<a class="text-muted" href="<?=$this->base_url;?>/datatableTemplateAuth_flycircuit.php?carttable=usertable" target="_blank"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; 
+			<span id="neuronNum"><?=$cartNum;?></span>
+			</a>		  
           </div>
         </div>
       </header>

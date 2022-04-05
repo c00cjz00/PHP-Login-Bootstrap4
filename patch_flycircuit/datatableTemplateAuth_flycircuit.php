@@ -26,13 +26,13 @@ if (isset($_GET["mytable"]) && (trim($_GET["mytable"])!="") ){
  if (isset($_SESSION["neuron"])){
   $neuronArr=$_SESSION["neuron"];
   foreach ($neuronArr as $neuron => $value){
-   $gender=$neuronArr[$neuron]["gender"];
-   $age=$neuronArr[$neuron]["age"];
-   $driver=$neuronArr[$neuron]["driver"];
-   $neurotransmitter=$neuronArr[$neuron]["neurotransmitter"];
-   $birthtiming=$neuronArr[$neuron]["birthtiming"];
-   $neuronVolume=$neuronArr[$neuron]["neuronVolume"];
-   $author=$neuronArr[$neuron]["author"];
+   //$gender=$neuronArr[$neuron]["gender"];
+   //$age=$neuronArr[$neuron]["age"];
+   //$driver=$neuronArr[$neuron]["driver"];
+   //$neurotransmitter=$neuronArr[$neuron]["neurotransmitter"];
+   //$birthtiming=$neuronArr[$neuron]["birthtiming"];
+   //$neuronVolume=$neuronArr[$neuron]["neuronVolume"];
+   //$author=$neuronArr[$neuron]["author"];
    //echo $neuron."<br>";
    $sql="INSERT INTO usertable SELECT null,lsm, neuron, gender, age, driver, neurotransmitter, birthtiming, neuronVolume, author FROM neuronList WHERE neuron='".$neuron."'"; 
    mysqli_query($con,$sql);
@@ -112,13 +112,6 @@ if ($table_name=="neuronList"){
   <?php require 'login/misc/pullnav.php'; ?>
     <div class="container">
 	<div class="col-12 pt-1">
-
-
-
-
-
-
-
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" >
@@ -152,12 +145,8 @@ if ($table_name=="neuronList"){
 		<!--div class="demo-html"-->
 			<!--table id="example" class="display" style="width:100%"-->
 			<!--div id="leftbutton">
-			<button id="button_search" class="btn btn-<?=$buttonColor;?> mycustombutton"><?=$buttonText;?></button>
-			</div-->					
-			<div id="rightbutton">
-			<button id="button_selectall" class="btn btn-primary btn-sm mycustombutton">Select all</button>
-			<button id="button_removeall" class="btn btn-success btn-sm mycustombutton">Remove selected</button>
-			</div>			
+			<button id="button_search" class="btn btn-<?=$buttonColor;?>"><?=$buttonText;?></button>
+			</div-->							
 			<table id="example" class="display table table-striped nowrap" style="width:100%">
 				<thead>
 					<tr>
@@ -191,14 +180,19 @@ if ($table_name=="neuronList"){
 		<!--/div-->		
     </div><br>
 	<div class="container">
-			<button id="button_search" class="btn btn-info">Selected neurons</button>
-	  
+	  <button id="button_selectall" class="btn btn-secondary">Select all</button>
+	  <button id="button_removeall" class="btn btn-secondary">Remove selected</button>
+	  <!--button id="button_search" class="btn btn-info">Selected neurons</button-->
 	  <form id="myform" action="process.php" method="post">
 		<div class="form-group">
 		  <textarea class="form-control" rows="3" name="mySelected" id="mySelected"></textarea>
 		</div>	  
-		<input type="button" class="btn btn-default" id="copyID" value="Copy" />
-		<button type="submit" class="btn btn-default" id="copyCart" name="copyCart">Add to cart</button>
+		<input type="button" class="btn btn-info" id="copyID" value="Copy" />
+		<?php if  (isset($_GET["carttable"]) && ($_GET["carttable"]=="usertable")){ ?>
+		<a href="?neuronReset=1" role="button" type="submit" class="btn btn-danger" id="emptycart" name="emptycart">Empty cart</a>
+		<?php }else{ ?>
+		<button type="submit" class="btn btn-info" id="copyCart" name="copyCart">Add to cart</button>
+		<?php }?>
 	  </form>
 	</div>
 	<Br>

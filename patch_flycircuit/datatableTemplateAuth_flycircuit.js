@@ -5,7 +5,7 @@ $(document).ready(function() {
     // Setup - add a text input to each footer cell
     $('#example tfoot th').each( function () {
         var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+        $(this).html( '<input type="text" placeholder="'+title+'" />' );
     } );	
 	var selected = [];
 	var table =  $('#example').DataTable( {
@@ -26,6 +26,7 @@ $(document).ready(function() {
         columns: [
             { 
 				data: "id", 
+				searchable: false,
 				className: 'dt-center select-checkbox',
 				orderable: false,
 				render: function(data,type,row,meta){
