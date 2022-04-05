@@ -16,7 +16,7 @@ include( $DT_folder."/lib/Bootstrap.php" ); // cjz new
 if (isset($_GET["mytable"]) && (trim($_GET["mytable"])!="") ){
  $table_name=$_GET["mytable"];
 }else{
- $table_name="fc13List";
+ $table_name="flycircuit_db";
 }
 
 // Alias Editor classes so they are easy to use
@@ -34,15 +34,22 @@ use
 Editor::inst( $db, $table_name )
     ->fields(
         Field::inst( 'id' ),
-        Field::inst( 'lsm' ),
         Field::inst( 'neuron' ),
+        Field::inst( 'neuronName' ),
         Field::inst( 'gender' ),
         Field::inst( 'age' ),
         Field::inst( 'driver' ),
         Field::inst( 'neurotransmitter' ),
         Field::inst( 'birthtiming' ),
-        Field::inst( 'neuronVolume' ),
-        Field::inst( 'author' )	
+        Field::inst( 'class' ),
+        Field::inst( 'type' ),
+        Field::inst( 'imagingTechnique' ),
+        Field::inst( 'library' ),
+        Field::inst( 'reference' ),		
+        Field::inst( 'bridgeID01' ),	
+        Field::inst( 'bridgeID02' ),	
+        Field::inst( 'bridgeID03' ),	
+        Field::inst( 'bridgeID04' )	
     )
     ->process( $_POST )
     ->json();

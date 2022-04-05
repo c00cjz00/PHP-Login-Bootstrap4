@@ -18,30 +18,21 @@ if (mysqli_connect_errno()){
 if (isset($_GET["mytable"]) && (trim($_GET["mytable"])!="") ){
  $table_name=$_GET["mytable"];
  $annotation="Search result:"; 
-}elseif (isset($_GET["carttable"]) && (trim($_GET["carttable"])!="") ){
- $table_name=$_GET["carttable"]; 
+}elseif (isset($_GET["carttable"]) && (trim($_GET["carttable"])=="usertable") && isset($_SESSION["username"])){
+ $table_name=$_GET["carttable"]."_".$_SESSION["username"];
  $annotation="Neuron cart:";
-  $sql="CREATE TABLE IF NOT EXISTS usertable LIKE neuronList"; mysqli_query($con,$sql);
-  $sql="TRUNCATE TABLE usertable"; mysqli_query($con,$sql); 
+ $sql="CREATE TABLE IF NOT EXISTS $table_name LIKE flycircuit_db"; mysqli_query($con,$sql);
+ $sql="TRUNCATE TABLE  $table_name"; mysqli_query($con,$sql); 
  if (isset($_SESSION["neuron"])){
   $neuronArr=$_SESSION["neuron"];
   foreach ($neuronArr as $neuron => $value){
-   //$gender=$neuronArr[$neuron]["gender"];
-   //$age=$neuronArr[$neuron]["age"];
-   //$driver=$neuronArr[$neuron]["driver"];
-   //$neurotransmitter=$neuronArr[$neuron]["neurotransmitter"];
-   //$birthtiming=$neuronArr[$neuron]["birthtiming"];
-   //$neuronVolume=$neuronArr[$neuron]["neuronVolume"];
-   //$author=$neuronArr[$neuron]["author"];
-   //echo $neuron."<br>";
-   $sql="INSERT INTO usertable SELECT null,lsm, neuron, gender, age, driver, neurotransmitter, birthtiming, neuronVolume, author FROM neuronList WHERE neuron='".$neuron."'"; 
+   $sql="INSERT INTO  $table_name SELECT null,`neuron`, `neuronName`, `gender`, `age`, `driver`, `neurotransmitter`, `birthtiming`, `class`, `type`, `imagingTechnique`, `library`, `reference`, `bridgeID01`, `bridgeID02`, `bridgeID03`, `bridgeID04` FROM flycircuit_db WHERE neuron='".$neuron."'"; 
    mysqli_query($con,$sql);
-   //echo $sql."<br>";
   } 
  }
  
 }else{
- $table_name="neuronList";
+ $table_name="flycircuit_db";
 }
 
 $sql="select count(*) from ".$table_name;
@@ -51,7 +42,7 @@ if ($result=mysqli_query($con,$sql)){
  }
 }
 
-if ($table_name=="neuronList"){
+if ($table_name=="flycircuit_db"){
  $buttonText="Browsing: $totalNeuron neurons";	
  $buttonColor="info";
 }else{
@@ -151,29 +142,37 @@ if ($table_name=="neuronList"){
 				<thead>
 					<tr>
 						<th></th>
-						<th>images</th>
-						<th>neuron</th>
-						<th>gender</th>
-						<th>age</th>
-						<th>driver</th>
-						<th>neurotransmitter</th>
-						<th>birth</th>
-						<th>volume</th>
-						<th>author</th>
+						<th></th>
+						<th>ID</th>
+						<th>Neuron name</th>
+						<th>Gender</th>
+						<th>Age</th>
+						<th>Driver</th>
+						<th>Neurotransmitter</th>
+						<th>Birthtiming</th>
+						<th>Class</th>
+						<th>Type</th>
+						<th>Imaging Technique	</th>
+						<th>Library</th>
+						<th>Reference</th>
 					</tr>
 				</thead>
 				<tfoot>
 					<tr>
 						<th></th>
-						<th>images</th>
-						<th>neuron</th>
-						<th>gender</th>
-						<th>age</th>
-						<th>driver</th>
-						<th>neurotransmitter</th>
-						<th>birth</th>
-						<th>volume</th>
-						<th>author</th>
+						<th></th>
+						<th>ID</th>
+						<th>Neuron name</th>
+						<th>Gender</th>
+						<th>Age</th>
+						<th>Driver</th>
+						<th>Neurotransmitter</th>
+						<th>Birthtiming</th>
+						<th>Class</th>
+						<th>Type</th>
+						<th>Imaging Technique	</th>
+						<th>Library</th>
+						<th>Reference</th>
 					</tr>
 				</tfoot>
 			</table>

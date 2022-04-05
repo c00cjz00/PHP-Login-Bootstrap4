@@ -65,9 +65,11 @@
             <a class="blog-header-logo text-dark" href="#"><em>Flycircuit</em></a>
           </div>
           <div class="col-3 d-flex justify-content-end align-items-center">
+		   <?php if (isset($_SESSION["username"])){ ?>
 			<a class="text-muted" href="<?=$this->base_url;?>/datatableTemplateAuth_flycircuit.php?carttable=usertable" target="_blank"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; 
 			<span id="neuronNum"><?=$cartNum;?></span>
-			</a>		  
+			</a>	
+		   <?php }?>
           </div>
         </div>
       </header>
