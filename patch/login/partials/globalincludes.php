@@ -10,13 +10,10 @@
  
  <!-- Bootstrap core CSS -->
  <link href="<?=$this->base_url;?>/vendor/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
- 
  <!-- bootstrap & fontawesome -->
  <link rel="stylesheet" href="<?=$this->base_url;?>/vendor/components/font-awesome/css/font-awesome.min.css">
- 
  <!-- text fonts -->
  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">	
-	 
  <!-- Custom styles for this template -->
  <link href="<?=$this->base_url;?>/login/css/main.css" rel="stylesheet" media="screen">
  <link href="<?=$this->base_url;?>/login/css/footer.css" rel="stylesheet">
@@ -28,6 +25,7 @@
    border-radius: 3px;
   }
  </style>
+ 
  <!-- Bootstrap core JavaScript -->
  <!-- Placed at the end of the document so the pages load faster -->
  <script src="<?=$this->base_url;?>/vendor/components/jquery/jquery.min.js" type="application/javascript"></script>
