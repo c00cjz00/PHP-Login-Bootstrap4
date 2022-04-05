@@ -46,15 +46,15 @@ $(document).ready(function() {
 					var imagingTechnique = row['imagingTechnique'];  
                     if ( imagingTechnique == 'Confocal' ) {
 						var uuid = row['neuron'];  						
-						var link = '<a href=\"fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.LSM.crop.png\" target=\"_blank\"><img src=\"fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.LSM.small.png\" width=\"45"></a>\
-						<a href=\"displayImg.php?img=fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.neuron.png\" target=\"_blank\"><img src=\"fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.neuron.small.png\"  width=\"45\"></a>\
-						<a href=\"displayImg.php?img=fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.lineset.RP2n.png\" target=\"_blank\"><img src=\"fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.lineset.RP2n.small.png\"  width=\"45\"></a>';
+						var link = '<a href=\"fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.LSM.crop.png\" target=\"_blank\"><img src=\"fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.LSM.small.png\" height=\"45"></a>\
+						<a href=\"displayImg.php?img=fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.neuron.png\" target=\"_blank\"><img src=\"fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.neuron.small.png\"  height=\"45\"></a>\
+						<a href=\"displayImg.php?img=fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.lineset.RP2n.png\" target=\"_blank\"><img src=\"fc2Images/NeuronData_v1.3/'+ uuid +'/'+ uuid +'.lineset.RP2n.small.png\"  height=\"45\"></a>';
                     } else {
 						var uuid = row['bridgeID02'];  
 						var neuPrint = row['bridgeID03'];  
-						var link = '<a href=\"fc2Images/FlyEM/images/LSM/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_LSM_1.png\" target=\"_blank\"><img src=\"fc2Images/FlyEM/images/LSM/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_LSM_1s.png\" width=\"50"></a>\
-						<a href=\"fc2Images/FlyEM/images/neuron/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_Neuron_1.png\" target=\"_blank\"><img src=\"fc2Images/FlyEM/images/neuron/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_Neuron_1s.png\" width=\"59"></a>\
-						<a href=\"fc2Images/FlyEM/images/skeleton/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_Lineset_1.png\" target=\"_blank\"><img src=\"fc2Images/FlyEM/images/skeleton/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_Lineset_1s.png\" width=\"60"></a>';
+						var link = '<a href=\"fc2Images/FlyEM/images/LSM/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_LSM_1.png\" target=\"_blank\"><img src=\"fc2Images/FlyEM/images/LSM/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_LSM_1s.png\" height=\"45"></a>\
+						<a href=\"fc2Images/FlyEM/images/neuron/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_Neuron_1.png\" target=\"_blank\"><img src=\"fc2Images/FlyEM/images/neuron/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_Neuron_1s.png\" height=\"45"></a>\
+						<a href=\"fc2Images/FlyEM/images/skeleton/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_Lineset_1.png\" target=\"_blank\"><img src=\"fc2Images/FlyEM/images/skeleton/'+ uuid +'-E-'+ neuPrint +'/'+ uuid +'-E-'+ neuPrint +'_Lineset_1s.png\" height=\"45"></a>';
 					}
 					return data ?
 					link :null	

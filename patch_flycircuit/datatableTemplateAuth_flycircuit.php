@@ -187,10 +187,12 @@ if ($table_name=="flycircuit_db"){
 		  <textarea class="form-control" rows="3" name="mySelected" id="mySelected"></textarea>
 		</div>	  
 		<input type="button" class="btn btn-info" id="copyID" value="Copy" />
+		<?php if (isset($_SESSION["username"])){ ?>
 		<?php if  (isset($_GET["carttable"]) && ($_GET["carttable"]=="usertable")){ ?>
 		<a href="?neuronReset=1" role="button" type="submit" class="btn btn-danger" id="emptycart" name="emptycart">Empty cart</a>
 		<?php }else{ ?>
 		<button type="submit" class="btn btn-info" id="copyCart" name="copyCart">Add to cart</button>
+		<?php }?>
 		<?php }?>
 	  </form>
 	</div>
